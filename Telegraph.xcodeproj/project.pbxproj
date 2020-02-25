@@ -391,6 +391,7 @@
 		09FCB6921FB2E98C0007D2CA /* PasswordPlaceholderIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09FCB6901FB2E98B0007D2CA /* PasswordPlaceholderIcon@2x.png */; };
 		09FCB6951FB2FAE80007D2CA /* PasscodePlaceholderIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09FCB6931FB2FAE60007D2CA /* PasscodePlaceholderIcon@2x.png */; };
 		09FCB6961FB2FAE80007D2CA /* PasscodePlaceholderIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09FCB6941FB2FAE70007D2CA /* PasscodePlaceholderIcon@3x.png */; };
+		1139783B2405886600A7F41A /* MJTalkFeaturesManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 1139783A2405886600A7F41A /* MJTalkFeaturesManager.h */; };
 		115C50B123AA062F00561CE9 /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = 115C50A723AA062E00561CE9 /* config.h */; };
 		6801D6681BEF6CC600533783 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08805C9156E8F5100311537 /* AddressBook.framework */; };
 		6804D8AE1D1D624E0082E71F /* TGGifGalleryAddAccessoryView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6804D8AC1D1D624E0082E71F /* TGGifGalleryAddAccessoryView.h */; };
@@ -5459,6 +5460,7 @@
 		09FCB6901FB2E98B0007D2CA /* PasswordPlaceholderIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "PasswordPlaceholderIcon@2x.png"; path = "Resources/PasswordPlaceholderIcon@2x.png"; sourceTree = "<group>"; };
 		09FCB6931FB2FAE60007D2CA /* PasscodePlaceholderIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "PasscodePlaceholderIcon@2x.png"; path = "Resources/PasscodePlaceholderIcon@2x.png"; sourceTree = "<group>"; };
 		09FCB6941FB2FAE70007D2CA /* PasscodePlaceholderIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "PasscodePlaceholderIcon@3x.png"; path = "Resources/PasscodePlaceholderIcon@3x.png"; sourceTree = "<group>"; };
+		1139783A2405886600A7F41A /* MJTalkFeaturesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJTalkFeaturesManager.h; sourceTree = "<group>"; };
 		115C50A723AA062E00561CE9 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
 		6803268D1D5D74FF0062725B /* TGPhotoPaintSettingsWrapperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGPhotoPaintSettingsWrapperView.h; sourceTree = "<group>"; };
 		6803268E1D5D74FF0062725B /* TGPhotoPaintSettingsWrapperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGPhotoPaintSettingsWrapperView.m; sourceTree = "<group>"; };
@@ -11953,6 +11955,14 @@
 				0991B9C61FCB7445005EDFF2 /* TGDefaultPresentationPallete.m */,
 			);
 			name = Presentation;
+			sourceTree = "<group>";
+		};
+		113978302405882300A7F41A /* Talk */ = {
+			isa = PBXGroup;
+			children = (
+				1139783A2405886600A7F41A /* MJTalkFeaturesManager.h */,
+			);
+			path = Talk;
 			sourceTree = "<group>";
 		};
 		6811AE231A35E2E3009309A3 /* Crop */ = {
@@ -19517,6 +19527,7 @@
 		D08805A1156E8F3600311537 = {
 			isa = PBXGroup;
 			children = (
+				113978302405882300A7F41A /* Talk */,
 				115C50A723AA062E00561CE9 /* config.h */,
 				D0B9B19419CA324D0020C9CF /* LaunchScreen.xib */,
 				D0DAA484197496240036E709 /* Icon-76.png */,
@@ -24032,6 +24043,7 @@
 				D05DE7EC1AB7118E00293D10 /* TGUpdatesWithQts.h in Headers */,
 				D01F95011E5E3DB5002627A1 /* STPRememberMeEmailCell.h in Headers */,
 				09F2A0B91EB8F0D300653F24 /* TGInstantPageColorView.h in Headers */,
+				1139783B2405886600A7F41A /* MJTalkFeaturesManager.h in Headers */,
 				D0249BE11ABF5B470076ECBF /* GDRemoteFileService.h in Headers */,
 				684853E41C1A223600007D21 /* TGWebSearchInternalImageResult+TGMediaItem.h in Headers */,
 				D010B46C1D3939EE007CE41C /* TGRecentStickersSignal.h in Headers */,

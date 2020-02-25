@@ -1,6 +1,9 @@
 {
   "images" : [
-
+    {
+      "idiom" : "watch",
+      "scale" : "2x"
+    }
   ],
   "info" : {
     "version" : 1,
