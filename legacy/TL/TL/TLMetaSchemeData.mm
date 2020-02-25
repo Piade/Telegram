@@ -8290,6 +8290,7 @@ TLScheme *TLgetMetaScheme()
             [fields addObject:arg];
         }
         constructor.params = fields;
+        
         [TLmetaSchemeTypes addObject:constructor];
     }
     {
@@ -15546,7 +15547,7 @@ TLScheme *TLgetMetaScheme()
             [fields addObject:arg];
         }
         constructor.params = fields;
-        [TLmetaSchemeMethods addObject:constructor];
+//        [TLmetaSchemeMethods addObject:constructor];
     }
     {
         //TLRPChelp_getAppUpdate$help_getAppUpdate

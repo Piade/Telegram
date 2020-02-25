@@ -233,6 +233,11 @@ static TGTelegramNetworking *singleton = nil;
             [_context performBatchUpdates:^
             {
                 [_context setSeedAddressSetForDatacenterWithId:1 seedAddressSet:[[MTDatacenterAddressSet alloc] initWithAddressList:@[
+                                                                                                                                      [[MTDatacenterAddress alloc] initWithIp:@"79.132.207.178" port:8888 preferForMedia:false restrictToTcp:false cdn:false preferForProxy:false]
+                                                                                                                                      //                    [[MTDatacenterAddress alloc] initWithIp:@"2001:b28:f23d:f001::a" port:443 preferForMedia:false restrictToTcp:false cdn:false preferForProxy:false]
+                                                                                                                                      ]]];
+                
+                [_context setSeedAddressSetForDatacenterWithId:2 seedAddressSet:[[MTDatacenterAddressSet alloc] initWithAddressList:@[
                     [[MTDatacenterAddress alloc] initWithIp:@"79.132.207.178" port:8888 preferForMedia:false restrictToTcp:false cdn:false preferForProxy:false]
 //                    [[MTDatacenterAddress alloc] initWithIp:@"2001:b28:f23d:f001::a" port:443 preferForMedia:false restrictToTcp:false cdn:false preferForProxy:false]
                 ]]];
@@ -491,13 +496,13 @@ static TGTelegramNetworking *singleton = nil;
         }
         
 #if TARGET_IPHONE_SIMULATOR && true
-        MTRequest *getSchemeRequest = [[MTRequest alloc] init];
-        getSchemeRequest.body = [[TLRPChelp_getScheme$help_getScheme alloc] init];
-        [getSchemeRequest setCompleted:^(TLScheme$scheme *result, __unused NSTimeInterval timestamp, __unused id error)
-         {
-             TGLog(@"%@", result.scheme_raw);
-         }];
-        [_requestService addRequest:getSchemeRequest];
+//        MTRequest *getSchemeRequest = [[MTRequest alloc] init];
+//        getSchemeRequest.body = [[TLRPChelp_getScheme$help_getScheme alloc] init];
+//        [getSchemeRequest setCompleted:^(TLScheme$scheme *result, __unused NSTimeInterval timestamp, __unused id error)
+//         {
+//             TGLog(@"%@", result.scheme_raw);
+//         }];
+//        [_requestService addRequest:getSchemeRequest];
         
 //        [_context transportSchemeForDatacenterWithIdRequired:1];
 #endif
@@ -1082,6 +1087,8 @@ static TGTelegramNetworking *singleton = nil;
             request.hasHighPriority = true;
         }
         
+        
+        
         bool continueOnFloodWait = true;
         if ([request.body isKindOfClass:[TLRPCauth_sendCode class]] || [request.body isKindOfClass:[TLRPCauth_resendCode$auth_resendCode class]]) {
             continueOnFloodWait = false;
@@ -1100,6 +1107,7 @@ static TGTelegramNetworking *singleton = nil;
         }];
         
         [_requestService addRequest:request];
+        
         return request.internalId;
     }
 #else

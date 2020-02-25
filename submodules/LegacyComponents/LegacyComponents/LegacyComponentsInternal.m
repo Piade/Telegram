@@ -72,6 +72,12 @@ int iosMajorVersion()
             case 11:
                 version = 11;
                 break;
+            case 12:
+                version = 12;
+                break;
+            case 13:
+                version = 13;
+                break;
             default:
                 version = 9;
                 break;

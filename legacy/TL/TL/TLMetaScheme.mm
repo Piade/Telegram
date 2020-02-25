@@ -777,7 +777,7 @@ void TLRegisterClasses()
     TLMetaClassStore::registerObjectClass([TLRPCgeo_saveGeoPlace$geo_saveGeoPlace new]);
     TLMetaClassStore::registerObjectClass([TLRPChelp_getConfig$help_getConfig new]);
     TLMetaClassStore::registerObjectClass([TLRPChelp_getNearestDc$help_getNearestDc new]);
-    TLMetaClassStore::registerObjectClass([TLRPChelp_getScheme$help_getScheme new]);
+//    TLMetaClassStore::registerObjectClass([TLRPChelp_getScheme$help_getScheme new]);
     TLMetaClassStore::registerObjectClass([TLRPChelp_getAppUpdate$help_getAppUpdate new]);
     TLMetaClassStore::registerObjectClass([TLRPChelp_getInviteText$help_getInviteText new]);
     TLMetaClassStore::registerObjectClass([TLRPChelp_getAppPrefs$help_getAppPrefs new]);
