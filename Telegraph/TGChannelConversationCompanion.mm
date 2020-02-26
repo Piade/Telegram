@@ -71,6 +71,7 @@
 
 #import "TGPresentationAssets.h"
 
+
 @interface TGChannelConversationCompanion () <TGModernConversationContactLinkTitlePanelDelegate> {
     NSDictionary *_initialUserActivities;
     
@@ -694,7 +695,12 @@
     }
     
     NSMutableArray *actions = [[NSMutableArray alloc] init];
-    [actions addObject:@{@"title": TGLocalized(@"Conversation.Search"), @"icon": [TGPresentationAssets chatTitleSearchIcon], @"action": @"search"}];
+    
+#ifdef DisableSearchMessage
+#else
+        [actions addObject:@{@"title": TGLocalized(@"Conversation.Search"), @"icon": [TGPresentationAssets chatTitleSearchIcon], @"action": @"search"}];
+#endif
+
     if (_isGroup && _conversation.username.length != 0) {
         [actions addObject:@{@"title": TGLocalized(@"ReportPeer.Report"), @"icon": [TGPresentationAssets chatTitleReportIcon], @"action": @"report"}];
     }
@@ -1827,6 +1833,10 @@
 }
 
 - (bool)canPinMessage:(TGMessage *)message {
+#ifdef DisablePinMessages
+    return false;
+#endif
+    
     if (message.mid >= TGMessageLocalMidBaseline) {
         return false;
     }

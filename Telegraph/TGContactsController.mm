@@ -69,6 +69,7 @@
 
 #import "TGMeContactsCell.h"
 
+
 #pragma mark -
 
 static bool TGContactListItemSortByLastNameFunction(const TGUser *item1, const TGUser *item2)
@@ -1423,7 +1424,20 @@ static bool TGContactListSectionComparator(std::shared_ptr<TGContactListSection>
             return [self numberOfRowsInFirstSection];
         
         if (section >= 0 && section < (int)_sectionList.size())
-            return (int)(_sectionList[section]->items.size());
+        {
+            int numberOfRow = (int)(_sectionList[section]->items.size());
+            if (section == 0) {
+#ifdef DisableSecretChat
+                numberOfRow--;
+#endif
+                
+#ifdef DisableCreateChannel
+                numberOfRow--;
+#endif
+            }
+            
+            return numberOfRow;
+        }
     }
     else if (section == 0)
     {

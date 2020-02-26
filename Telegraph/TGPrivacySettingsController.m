@@ -47,6 +47,7 @@
 #import "TGTelegramNetworking.h"
 #import "TL/TLMetaScheme.h"
 
+
 @interface TGPrivacySettingsController () <ASWatcher>
 {
     bool _receivedAccountSettings;
@@ -137,19 +138,35 @@
             [phoneCallsEnabledData getBytes:&phoneCallsEnabled];
         }
         [lastSeenSectionItems addObject:[[TGHeaderCollectionItem alloc] initWithTitle:TGLocalized(@"PrivacySettings.PrivacyTitle")]];
+        
+#ifdef DisableBlockUser
+#else
         [lastSeenSectionItems addObject:_blockedUsersItem];
+#endif
+      
+#ifdef DisableLastSeenSetting
+#else
         [lastSeenSectionItems addObject:_lastSeenItem];
+#endif
+        
         if (phoneCallsEnabled != 0) {
             [lastSeenSectionItems addObject:_callsItem];
         }
+#ifdef DisableAddToGroup
+#else
         [lastSeenSectionItems addObject:_groupsAndChannelsItem];
+#endif
+        
         [lastSeenSectionItems addObject:[[TGCommentCollectionItem alloc] initWithFormattedText:TGLocalized(@"PrivacyLastSeenSettings.GroupsAndChannelsHelp")]];
         
         TGCollectionMenuSection *lastSeenSection = [[TGCollectionMenuSection alloc] initWithItems:lastSeenSectionItems];
         UIEdgeInsets topSectionInsets = lastSeenSection.insets;
         topSectionInsets.top = 32.0f;
         lastSeenSection.insets = topSectionInsets;
-        [self.menuSections addSection:lastSeenSection];
+
+        if (lastSeenSectionItems.count > 2) {
+            [self.menuSections addSection:lastSeenSection];
+        }
         
         TGButtonCollectionItem *terminateSessionsItem = [[TGButtonCollectionItem alloc] initWithTitle:TGLocalized(@"ChatSettings.ClearOtherSessions") action:@selector(terminateSessionsPressed)];
         terminateSessionsItem.titleColor = [UIColor blackColor];
@@ -166,7 +183,11 @@
         TGCollectionMenuSection *securitySection = [[TGCollectionMenuSection alloc] initWithItems:@[
             [[TGHeaderCollectionItem alloc] initWithTitle:TGLocalized(@"PrivacySettings.SecurityTitle")],
             [[TGDisclosureActionCollectionItem alloc] initWithTitle:passcodeTitle action:@selector(passcodePressed)],
+#ifdef DisableTwoStepVerification
+#else
             [[TGDisclosureActionCollectionItem alloc] initWithTitle:TGLocalized(@"PrivacySettings.TwoStepAuth") action:@selector(passwordPressed)],
+     
+#endif
             [[TGDisclosureActionCollectionItem alloc] initWithTitle:TGLocalized(@"PrivacySettings.AuthSessions") action:@selector(authSessionsPressed)]
         ]];
         [self.menuSections addSection:securitySection];
@@ -178,7 +199,11 @@
             _accountExpirationItem,
             [[TGCommentCollectionItem alloc] initWithText:TGLocalized(@"PrivacySettings.DeleteAccountHelp")]
         ]];
+        
+#ifdef DisableDeleteMyAccount
+#else
         [self.menuSections addSection:deleteAccountSection];
+#endif
         
         TGButtonCollectionItem *clearPaymentInfoItem = [[TGButtonCollectionItem alloc] initWithTitle:TGLocalized(@"Privacy.PaymentsClearInfo") action:@selector(clearPaymentsPressed)];
         clearPaymentInfoItem.deselectAutomatically = true;
@@ -187,7 +212,10 @@
             clearPaymentInfoItem,
             [[TGCommentCollectionItem alloc] initWithText:TGLocalized(@"Privacy.PaymentsClearInfoHelp")]
         ]];
+#ifdef DisablePaymentSection
+#else
         [self.menuSections addSection:paymentsSection];
+#endif
         
         TGAccountSettings *accountSettings = [TGAccountSettingsActor accountSettingsFotCurrentStateId];
         if (accountSettings != nil)

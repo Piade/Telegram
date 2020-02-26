@@ -162,7 +162,11 @@
 
 - (bool)allowVideoMessages
 {
+#ifdef DisableSelfVideoCapture
+    return false;
+#else
     return [super allowVideoMessages] && [self layer] >= 66;
+#endif
 }
 
 - (bool)encryptUploads
@@ -577,6 +581,9 @@
 }
 
 - (bool)allowMediaGrouping {
+#ifdef DisableMultiMediaGroup
+    return false;
+#endif
     return [self layer] >= 73;
 }
 

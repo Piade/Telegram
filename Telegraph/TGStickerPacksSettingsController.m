@@ -126,7 +126,11 @@
         if (!_masksMode) {
             [stickerPacksSectionItems addObject:[[TGHeaderCollectionItem alloc] initWithTitle:TGLocalized(@"StickerPacksSettings.StickerPacksSection")]];
         }
+#ifdef DisableStickersBot
+#else
         [stickerPacksSectionItems addObject:hintItem];
+#endif
+        
         _stickerPacksSection = [[TGCollectionMenuSection alloc] initWithItems:stickerPacksSectionItems];
         _stickerPacksSection.insets = UIEdgeInsetsMake(_editingMode ? 24.0 : 8.0f, 0.0f, 16.0f, 0.0f);
         [self.menuSections addSection:_stickerPacksSection];
@@ -309,8 +313,20 @@
     _showStickersButtonItem.isOn = TGAppDelegateInstance.alwaysShowStickersMode == 2;
     
     _originalStickerPacks = stickerPacks;
+    
+#ifdef DisableArchiveStickers
+    _showArchived = false;
+#else
     _showArchived = showArchived;
+#endif
+    
+#ifdef DisableTrendingStickers
+    _showFeatured = false;
+#else
     _showFeatured = showFeatured;
+#endif
+    
+    
     
     if (_showArchived) {
         if ([_featuredPacksSection indexOfItem:_archivedPacksItem] == NSNotFound) {
@@ -328,6 +344,9 @@
         [_featuredPacksSection deleteItem:_featuredPacksItem];
     }
     
+#ifdef DisableMasksStickers
+#else
+    
     if (!_masksMode) {
         if ([_featuredPacksSection indexOfItem:_maskStickerSettingsItem] == NSNotFound) {
             [_featuredPacksSection addItem:_maskStickerSettingsItem];
@@ -335,6 +354,7 @@
     } else {
         [_featuredPacksSection deleteItem:_maskStickerSettingsItem];
     }
+#endif
     
     if (_showArchived || _showFeatured || !_masksMode) {
         _featuredPacksSection.insets = UIEdgeInsetsMake(_masksMode ? 32.0f : 16.0f, 0.0f, 16.0f, 0.0f);

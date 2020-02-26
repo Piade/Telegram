@@ -16,7 +16,9 @@ UIColor *TGAccentColor()
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^
     {
-        color = TGColorWithHex(0x007ee5);
+//        color = TGColorWithHex(0x007ee5);
+        //TALK COLOR
+        color = TGColorWithHex(0x78398a);
     });
     return color;
 }
@@ -27,7 +29,8 @@ UIColor *TGDestructiveAccentColor()
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^
     {
-        color = TGColorWithHex(0xff3b30);
+//        color = TGColorWithHex(0xff3b30);
+        color = TGColorWithHex(0x78398a);
     });
     return color;
 }

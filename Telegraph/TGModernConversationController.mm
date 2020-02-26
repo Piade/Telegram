@@ -8355,7 +8355,10 @@ typedef enum {
                                                    [strongController dismissAnimated:true];
                                                    [strongSelf _displayLocationPicker];
                                                }];
+#ifdef DisableSendLocation
+#else
     [itemViews addObject:locationItem];
+#endif
     
     if (hasContactItem)
     {

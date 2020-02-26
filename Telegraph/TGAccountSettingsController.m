@@ -151,7 +151,12 @@
         [settingsItems addObject:(_privacySettingsItem = [[TGDisclosureActionCollectionItem alloc] initWithTitle:TGLocalized(@"Settings.PrivacySettings") action:@selector(privacySettingsPressed)])];
         [settingsItems addObject:(_chatSettingsItem = [[TGDisclosureActionCollectionItem alloc] initWithTitle:TGLocalized(@"Settings.ChatSettings") action:@selector(chatSettingsPressed)])];
         [settingsItems addObject:_wallpapersItem];
+        
+#ifdef DisableChangeLanguage
+#else
         [settingsItems addObject:_languageItem];
+#endif
+        
         
         NSMutableArray *shortcutItems = [[NSMutableArray alloc] init];
         [shortcutItems addObject:(_savedMessagesItem = [[TGDisclosureActionCollectionItem alloc] initWithTitle:TGLocalized(@"Settings.SavedMessages") action:@selector(savedMessagesPressed)])];
@@ -217,7 +222,11 @@
             _supportItem,
             _faqItem
         ]];
+#ifdef DisableAskQuestionAndFAQ
+#else
         [self.menuSections addSection:infoSection];
+#endif
+        
    
 #ifdef INTERNAL_RELEASE
         TGCollectionMenuSection *debugSection = [[TGCollectionMenuSection alloc] initWithItems:@[[[TGButtonCollectionItem alloc] initWithTitle:@"Debug Settings" action:@selector(mySettingsPressed)]]];

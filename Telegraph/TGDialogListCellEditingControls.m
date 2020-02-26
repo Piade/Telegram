@@ -6,6 +6,7 @@
 
 #import "TGPresentationAssets.h"
 
+
 static UIFont *buttonFont;
 static CGFloat buttonWidth;
 
@@ -13,7 +14,13 @@ NSArray *TGDialogListCellEditingControlButtonsPinDelete() {
     static NSArray *buttons;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        
+#ifdef DisablePinConversation
+        buttons = @[@(TGDialogListCellEditingControlsDelete)];
+#else
         buttons = @[@(TGDialogListCellEditingControlsPin), @(TGDialogListCellEditingControlsDelete)];
+#endif
+        
     });
     return buttons;
 }
@@ -22,7 +29,13 @@ NSArray *TGDialogListCellEditingControlButtonsUnpinDelete() {
     static NSArray *buttons;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        
+#ifdef DisablePinConversation
+        buttons = @[@(TGDialogListCellEditingControlsDelete)];
+#else
         buttons = @[@(TGDialogListCellEditingControlsUnpin), @(TGDialogListCellEditingControlsDelete)];
+#endif
+        
     });
     return buttons;
 }
@@ -31,7 +44,13 @@ NSArray *TGDialogListCellEditingControlButtonsMutePinDelete() {
     static NSArray *buttons;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        
+#ifdef DisablePinConversation
+        buttons = @[@(TGDialogListCellEditingControlsMute), @(TGDialogListCellEditingControlsDelete)];
+#else
         buttons = @[@(TGDialogListCellEditingControlsPin), @(TGDialogListCellEditingControlsMute), @(TGDialogListCellEditingControlsDelete)];
+#endif
+
     });
     return buttons;
 }
@@ -40,7 +59,13 @@ NSArray *TGDialogListCellEditingControlButtonsUnmutePinDelete() {
     static NSArray *buttons;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        
+#ifdef DisablePinConversation
+        buttons = @[@(TGDialogListCellEditingControlsUnmute), @(TGDialogListCellEditingControlsDelete)];
+#else
         buttons = @[@(TGDialogListCellEditingControlsPin), @(TGDialogListCellEditingControlsUnmute), @(TGDialogListCellEditingControlsDelete)];
+#endif
+
     });
     return buttons;
 }
@@ -49,7 +74,13 @@ NSArray *TGDialogListCellEditingControlButtonsMuteUnpinDelete() {
     static NSArray *buttons;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        
+#ifdef DisablePinConversation
+        buttons = @[@(TGDialogListCellEditingControlsMute), @(TGDialogListCellEditingControlsDelete)];
+#else
         buttons = @[@(TGDialogListCellEditingControlsUnpin), @(TGDialogListCellEditingControlsMute), @(TGDialogListCellEditingControlsDelete)];
+#endif
+
     });
     return buttons;
 }
@@ -58,7 +89,13 @@ NSArray *TGDialogListCellEditingControlButtonsUnmuteUnpinDelete() {
     static NSArray *buttons;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        
+#ifdef DisablePinConversation
+        buttons = @[@(TGDialogListCellEditingControlsUnmute), @(TGDialogListCellEditingControlsDelete)];
+#else
         buttons = @[@(TGDialogListCellEditingControlsUnpin), @(TGDialogListCellEditingControlsUnmute), @(TGDialogListCellEditingControlsDelete)];
+#endif
+
     });
     return buttons;
 }

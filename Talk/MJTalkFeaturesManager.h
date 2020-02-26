@@ -8,58 +8,74 @@
 #ifndef MJTalkFeaturesManager_h
 #define MJTalkFeaturesManager_h
 
-//Change Icon
-//Change Name
-//Default Intro Images by disable all intro
-//change notification banner icon
+//Change Icon ✅
+//Change Name ✅
+//Change Default Theme ✅
 
-#define DisableSecretChat
-//from create and profile
 
-#define DisableCreateChannel
+#define DisableIntro //✅
 
-//From Setting and start from first time
-#define DisableBlockUserFromUserInfo
+#define DisableSecretChat //✅
 
-#define DisableUserMention
+#define DisableCreateChannel //✅
 
-#define DisableSearchInConversation
-//From inside conversation
+#define DisableBlockUser //✅
 
-#define DisableHashtag
-//cant click hashtag
+#define DisablePinConversation //✅
 
-#define DisableBot
+#define DisablePinMessages //✅
 
-#define PinConversation
+#define DisableSearchMessage //✅
 
-#define DisableIntro
+#define DisableUserMention //✅
 
-#define DisableGroupAdminsFetures
+#define DisableHashtag //✅
 
-#define DisablePinMessages
+#define DisableSelfDestructiveTimer //✅
 
-#define DisableSelfDestructiveInSendMedia
+#define DisableMultiMediaGroup //✅
 
-#define DisableSendLocation
+#define DisableSelfVideoCapture //✅
 
-#define DisableMultiMediaGroup
-#define DisableSelfVideoCapture
-#define Disable
+#define DisableSendLocation //✅
+
+#define DisableSendContact //✅
+
+//#define DisableBot
+#define DisableGroupAdminsFetures //✅
+
 
 //Settings
-#define DisableAskQuestionAndFAQ
-#define DisableChangeLanguage
-#define DisableProxy
-#define DisableBlockedUsers
-#define DisableTwoStepVerification
-#define DisableDeleteMyAccount
-#define DisablePaymentSection
-#define DisableTrensStickers
-#define DisableStickerBot
+#define DisableAskQuestionAndFAQ //✅
 
+#define DisableChangeLanguage //✅
 
-//TemprerlyDisableCreateGroupToFixIt
+#define DisableProxy //✅
 
+#define DisableVoiceCall //✅
+
+#define DisableAutomaticVideoMessage //✅
+
+#define DisableAddToGroup //✅
+
+#define DisableLastSeenSetting //✅
+
+#define DisableTwoStepVerification //✅
+
+#define DisableDeleteMyAccount //✅
+
+#define DisablePaymentSection //✅
+
+#define DisableMasksStickers //✅
+
+#define DisableTrendingStickers //✅
+
+#define DisableArchiveStickers //✅
+
+#define DisableStickersBot //✅
 
 #endif /* MJTalkFeaturesManager_h */
+
+
+
+

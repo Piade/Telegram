@@ -846,6 +846,10 @@
 
 - (void)displayHashtagOverview:(NSString *)hashtag conversationId:(int64_t)conversationId
 {
+#ifdef DisableHashtag
+    return;
+#endif
+    
     if (hashtag == nil || hashtag.length < 2)
         return;
     

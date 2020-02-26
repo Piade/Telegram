@@ -242,7 +242,11 @@
         _blockUserItem = [[TGUserInfoButtonCollectionItem alloc] initWithTitle:@"" action:@selector(blockUserPressed)];
         _blockUserItem.deselectAutomatically = true;
         _blockUserItem.titleColor = TGDestructiveAccentColor();
+#ifdef DisableBlockUser
+#else
         _blockUserSection = [[TGCollectionMenuSection alloc] initWithItems:@[_blockUserItem]];
+#endif
+        
         _blockUserSection.insets = UIEdgeInsetsMake(22.0f, 0.0f, 44.0f, 0.0f);
         
         bool outdated = false;
@@ -620,8 +624,11 @@
                 {
                     _shareContactItem = [[TGUserInfoButtonCollectionItem alloc] initWithTitle:TGLocalized(@"UserInfo.ShareContact") action:@selector(shareContactPressed)];
                     _shareContactItem.deselectAutomatically = true;
-                    
+#ifdef DisableSendContact
+#else
                     [self.menuSections addItemToSection:actionsSectionIndex item:_shareContactItem];
+#endif
+                    
                 }
                 else if (_user.phoneNumber.length != 0)
                 {
@@ -634,11 +641,20 @@
                 {
                     TGUserInfoButtonCollectionItem *shareContactInfoItem = [[TGUserInfoButtonCollectionItem alloc] initWithTitle:TGLocalized(@"UserInfo.ShareMyContactInfo") action:@selector(shareMyContactInfoPressed)];
                     shareContactInfoItem.deselectAutomatically = true;
+#ifdef DisableSendContact
+#else
                     [self.menuSections addItemToSection:actionsSectionIndex item:shareContactInfoItem];
+#endif
+                    
                 }
                 
                 if (!isCurrentUser)
+                {
+#ifdef DisableSecretChat
+#else
                     [self.menuSections addItemToSection:actionsSectionIndex item:_startSecretChatItem];
+#endif
+                }
             }
         }
     }

@@ -141,7 +141,10 @@
             _autoDownloadVideosItem,
             _autoDownloadDocumentsItem,
             _autoDownloadVoiceMessagesItem,
+#ifdef DisableAutomaticVideoMessage
+#else
             _autoDownloadVideoMessagesItem,
+#endif
             _autoDownloadResetItem
         ]];
         [self.menuSections addSection:autoDownloadSection];
@@ -153,7 +156,11 @@
             [[TGHeaderCollectionItem alloc] initWithTitle:[TGLocalized(@"Settings.CallSettings") uppercaseString]],
             _useLessDataItem
         ]];
+#ifdef DisableVoiceCall
+#else
         [self.menuSections addSection:callsSection];
+#endif
+        
         
         TGCollectionMenuSection *otherSection = [[TGCollectionMenuSection alloc] initWithItems:@[
             [[TGHeaderCollectionItem alloc] initWithTitle:TGLocalized(@"ChatSettings.Other")],
@@ -171,7 +178,11 @@
             [[TGHeaderCollectionItem alloc] initWithTitle:TGLocalized(@"ChatSettings.ConnectionType.Title")],
             _useProxyItem
         ]];
+#ifdef DisableProxy
+#else
         [self.menuSections addSection:proxySection];
+#endif
+        
         
         self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:TGLocalized(@"Common.Back") style:UIBarButtonItemStylePlain target:self action:@selector(backPressed)];
     }

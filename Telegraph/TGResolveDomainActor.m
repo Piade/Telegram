@@ -54,6 +54,10 @@
 
 - (void)execute:(NSDictionary *)options
 {
+#ifdef DisableUserMention
+    return;
+#endif
+    
     TGDispatchOnMainThread(^
     {
         _progressWindow = [[TGProgressWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];

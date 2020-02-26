@@ -869,7 +869,11 @@ static void dispatchOnMessageQueue(dispatch_block_t block, bool synchronous)
 
 - (bool)allowContactSharing
 {
+#ifdef DisableSendContact
+    return false;
+#else
     return true;
+#endif
 }
 
 - (bool)allowVenueSharing
@@ -884,7 +888,11 @@ static void dispatchOnMessageQueue(dispatch_block_t block, bool synchronous)
 
 - (bool)allowVideoMessages
 {
+#ifdef DisableSelfVideoCapture
+    return false;
+#else
     return iosMajorVersion() >= 8;
+#endif
 }
 
 - (bool)allowSelfDescructingMedia
@@ -899,7 +907,11 @@ static void dispatchOnMessageQueue(dispatch_block_t block, bool synchronous)
 
 - (bool)allowMediaGrouping
 {
+#ifdef DisableMultiMediaGroup
+    return false;
+#else
     return true;
+#endif
 }
 
 - (bool)encryptUploads

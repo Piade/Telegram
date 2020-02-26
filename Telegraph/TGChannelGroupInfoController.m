@@ -624,9 +624,13 @@ static const NSUInteger loadMoreMemberCount = 100;
             [_editDescriptionSection addItem:_stickersItem];
         }
         
+#ifdef DisableGroupAdminsFetures
+#else
+        
         if (_editDescriptionSection.items.count != 0) {
             [self.menuSections addSection:_editDescriptionSection];
         }
+#endif
         
         while (_adminInfoSection.items.count != 0) {
             [_adminInfoSection deleteItemAtIndex:0];
@@ -637,10 +641,12 @@ static const NSUInteger loadMoreMemberCount = 100;
             [_adminInfoSection addItem:_infoBlacklistItem];
         }
         
+#ifdef DisableGroupAdminsFetures
+#else
         if (_adminInfoSection.items.count != 0) {
             [self.menuSections addSection:_adminInfoSection];
         }
-        
+#endif
         self.collectionView.backgroundColor = [TGInterfaceAssets listsBackgroundColor];
     } else {
         [_groupInfoSection replaceItems:@[_groupInfoItem]];

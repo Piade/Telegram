@@ -970,7 +970,12 @@ static NSMutableDictionary *dismissedContactLinkPanelsByUserId()
     }
     
     NSMutableArray *actions = [[NSMutableArray alloc] init];
-    [actions addObject:@{@"title": TGLocalized(@"Conversation.Search"), @"icon": [TGPresentationAssets chatTitleSearchIcon], @"action": @"search"}];
+    
+#ifdef DisableSearchMessage
+#else
+        [actions addObject:@{@"title": TGLocalized(@"Conversation.Search"), @"icon": [TGPresentationAssets chatTitleSearchIcon], @"action": @"search"}];
+#endif
+
     if (_isMuted)
         [actions addObject:@{@"title": TGLocalized(@"Conversation.Unmute"), @"icon": [TGPresentationAssets chatTitleUnmuteIcon], @"action": @"unmute"}];
     else
@@ -1339,6 +1344,10 @@ static NSMutableDictionary *dismissedContactLinkPanelsByUserId()
 
 - (bool)allowSelfDescructingMedia
 {
+#ifdef DisableSelfDestructiveTimer
+    return false;
+#endif
+    
     TGUser *user = [TGDatabaseInstance() loadUser:_uid];
     if (user.kind != TGUserKindGeneric)
         return false;

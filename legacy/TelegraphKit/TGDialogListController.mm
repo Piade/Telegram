@@ -90,6 +90,7 @@
 
 #import "TGPresentation.h"
 
+
 static bool _debugDoNotJump = false;
 
 static int64_t lastAppearedConversationId = 0;
@@ -3351,12 +3352,14 @@ NSString *authorNameYou = @"  __TGLocalized__YOU";
                     [strongSelf performTableAction:action withIndexPath:indexPath];
                 }
             }]];
+
             [actions addObject:[UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:conversation.pinnedToTop ? TGLocalized(@"DialogList.Unpin") : TGLocalized(@"DialogList.Pin") handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
                 __strong TGDialogListController *strongSelf = weakSelf;
                 if (strongSelf != nil) {
                     [strongSelf performTableAction:action withIndexPath:indexPath];
                 }
             }]];
+
             return actions;
         }
     } else {

@@ -151,6 +151,7 @@
 
 #import "TGLegacyComponentsContext.h"
 
+
 NSString *TGDeviceProximityStateChangedNotification = @"TGDeviceProximityStateChangedNotification";
 
 CFAbsoluteTime applicationStartupTimestamp = 0;
@@ -249,8 +250,11 @@ TGTelegraph *telegraph = nil;
     {
         UIViewController *rootController = nil;
     
-        rootController = [[RMIntroViewController alloc] init];
-        
+#ifdef DisableIntro
+            rootController = [[TGLoginPhoneController alloc] init];
+#else
+            rootController = [[RMIntroViewController alloc] init];
+#endif
         _loginNavigationController = [TGNavigationController navigationControllerWithControllers:@[rootController] navigationBarClass:[TGTransparentNavigationBar class]];
         _loginNavigationController.restrictLandscape = !TGIsPad();
         _loginNavigationController.disableInteractiveKeyboardTransition = true;

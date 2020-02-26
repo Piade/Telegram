@@ -21,12 +21,15 @@
 
 - (UIColor *)accentColor
 {
-    return UIColorRGB(0x007ee5);
+//    return UIColorRGB(0x007ee5);
+    return UIColorRGB(0x78398a);
 }
 
 - (UIColor *)destructiveColor
 {
-    return UIColorRGB(0xff3b30);
+//    return UIColorRGB(0xff3b30);
+    
+    return UIColorRGB(0x78398a);
 }
 
 - (UIColor *)selectionColor
@@ -136,7 +139,8 @@
 
 - (UIColor *)dialogDraftColor
 {
-    return UIColorRGB(0xdd4b39);
+//    return UIColorRGB(0xdd4b39);
+    return UIColorRGB(0x78398a);
 }
 
 - (UIColor *)dialogDateColor
@@ -146,12 +150,14 @@
 
 - (UIColor *)dialogChecksColor
 {
-    return UIColorRGB(0x0dc33b);
+//    return UIColorRGB(0x0dc33b);
+        return UIColorRGB(0x78398a);
 }
 
 - (UIColor *)dialogVerifiedBackgroundColor
 {
-    return UIColorRGB(0x58a6e1);
+//    return UIColorRGB(0x58a6e1);
+    return UIColorRGB(0x78398a);
 }
 
 - (UIColor *)dialogVerifiedIconColor
@@ -176,7 +182,8 @@
 
 - (UIColor *)dialogBadgeColor
 {
-    return UIColorRGB(0x0f94f3);
+//    return UIColorRGB(0x0f94f3);
+    return UIColorRGB(0x78398a);
 }
 
 - (UIColor *)dialogBadgeTextColor
@@ -236,12 +243,14 @@
 
 - (UIColor *)chatIncomingLinkColor
 {
-    return UIColorRGB(0x004bad);
+//    return UIColorRGB(0x004bad);
+    return UIColorRGB(0x78398a);
 }
 
 - (UIColor *)chatOutgoingBubbleColor
 {
-    return UIColorRGB(0xe1ffc7);
+//    return UIColorRGB(0xe1ffc7);
+    return UIColorRGB(0x78398a);
 }
 
 //- (UIColor *)chatOutgoingBubbleBorderColor
@@ -261,27 +270,31 @@
 
 - (UIColor *)chatOutgoingTextColor
 {
-    return [UIColor blackColor];
+    return [UIColor whiteColor];
 }
 
 - (UIColor *)chatOutgoingSubtextColor
 {
-    return UIColorRGB(0x00a700);
+//    return UIColorRGB(0x00a700);
+    return UIColorRGB(0x78398a);
 }
 
 - (UIColor *)chatOutgoingAccentColor
 {
-    return UIColorRGB(0x00a700);
+//    return UIColorRGB(0x00a700);
+    return UIColorRGB(0x78398a);
 }
 
 - (UIColor *)chatOutgoingLinkColor
 {
-    return UIColorRGB(0x004bad);
+//    return UIColorRGB(0x004bad);
+    return UIColorRGB(0x78398a);
 }
 
 - (UIColor *)chatChecksColor
 {
-    return UIColorRGB(0x23ca0a);
+//    return UIColorRGB(0x23ca0a);
+    return UIColorRGB(0x78398a);
 }
 
 - (UIColor *)chatChecksMediaColor
@@ -366,7 +379,8 @@
 
 - (UIColor *)collectionMenuBadgeColor
 {
-    return UIColorRGB(0x0f94f3);
+//    return UIColorRGB(0x0f94f3);
+    return UIColorRGB(0x78398a);
 }
 
 - (UIColor *)collectionMenuBadgeTextColor
